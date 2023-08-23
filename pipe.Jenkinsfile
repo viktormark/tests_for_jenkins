@@ -10,19 +10,16 @@ pipeline {
         }
         stage('Run API Tests') {
             steps {
-                sh '. env/bin/activate'
                 sh 'pytest test_api.py'
             }
         }
         stage('Run UI Tests') {
             steps {
-                sh '. env/bin/activate'
                 sh 'pytest test_ui.py'
             }
         }
         stage('Run DB Tests') {
             steps {
-                sh '. env/bin/activate'
                 sh 'pytest test_db.py'
             }
         }
