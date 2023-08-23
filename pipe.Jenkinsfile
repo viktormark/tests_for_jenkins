@@ -10,17 +10,17 @@ pipeline {
         }
         stage('Run API Tests') {
             steps {
-                sh 'C:\Users\vikto\OneDrive\Робочий стіл\jen\env\Scripts\pytest.exe test_api.py'
+                sh 'C:\\Users\\vikto\\OneDrive\\Робочий стіл\\jen\\env\\Scripts\\pytest.exe test_api.py'
             }
         }
         stage('Run UI Tests') {
             steps {
-                sh 'C:\Users\vikto\OneDrive\Робочий стіл\jen\env\Scripts\pytest.exe  test_ui.py'
+                sh 'C:\\Users\\vikto\\OneDrive\\Робочий стіл\\jen\\env\\Scripts\\pytest.exe  test_ui.py'
             }
         }
         stage('Run DB Tests') {
             steps {
-                sh 'C:\Users\vikto\OneDrive\Робочий стіл\jen\env\Scripts\pytest.exe  test_db.py'
+                sh 'C:\\Users\\vikto\\OneDrive\\Робочий стіл\\jen\\env\\Scripts\\pytest.exe  test_db.py'
             }
         }
     }
