@@ -6,22 +6,21 @@ pipeline {
                 sh 'python3 -m venv env'
                 sh '. env/bin/activate'
                 sh 'pip install -r requirements.txt'
-                sh 'export PATH=$PATH:/var/jenkins_home/.local/bin'
             }
         }
         stage('Run API Tests') {
             steps {
-                sh 'pytest test_api.py'
+                sh 'C:\Users\vikto\OneDrive\Робочий стіл\jen\env\Scripts\pytest.exe test_api.py'
             }
         }
         stage('Run UI Tests') {
             steps {
-                sh 'pytest test_ui.py'
+                sh 'C:\Users\vikto\OneDrive\Робочий стіл\jen\env\Scripts\pytest.exe  test_ui.py'
             }
         }
         stage('Run DB Tests') {
             steps {
-                sh 'pytest test_db.py'
+                sh 'C:\Users\vikto\OneDrive\Робочий стіл\jen\env\Scripts\pytest.exe  test_db.py'
             }
         }
     }
