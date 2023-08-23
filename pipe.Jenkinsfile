@@ -6,7 +6,6 @@ pipeline {
                 script {
                     sh 'python3 -m venv env'
                     sh '. env/bin/activate && pip install -r requirements.txt'
-                    sh 'deactivate'
                 }
             }
         }
@@ -14,9 +13,7 @@ pipeline {
             steps {
                 script {
                     sh '. env/bin/activate'
-                    sh 'pip install pytest'
                     sh 'pytest test_api.py'
-                    sh 'deactivate'
                 }
             }
         }
@@ -24,9 +21,7 @@ pipeline {
             steps {
                 script {
                     sh '. env/bin/activate'
-                    sh 'pip install pytest'
                     sh 'pytest test_ui.py'
-                    sh 'deactivate'
                 }
             }
         }
@@ -34,9 +29,7 @@ pipeline {
             steps {
                 script {
                     sh '. env/bin/activate'
-                    sh 'pip install pytest'
                     sh 'pytest test_db.py'
-                    sh 'deactivate'
                 }
             }
         }
