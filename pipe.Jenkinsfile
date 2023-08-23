@@ -4,7 +4,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'python3 -m venv env'
-                bat 'venv\\Scripts\\activate.bat'
+                sh 'venv\\Scripts\\activate.bat'
                 sh 'pip install -r requirements.txt'
             }
         }
