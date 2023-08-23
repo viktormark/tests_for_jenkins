@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Install Dependencies') {
+          stage('Install Dependencies') {
             steps {
                 script {
                     sh 'python3 -m venv env'
@@ -39,5 +39,6 @@ pipeline {
                     sh 'deactivate'
                 }
             }
+        }
     }
 }
