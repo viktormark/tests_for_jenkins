@@ -3,28 +3,41 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'python3 -m venv env'
-                sh '. env/bin/activate'
-                sh 'pip install -r requirements.txt'
+                script {
+                    sh 'python3 -m venv env'
+                    sh '. env/bin/activate && pip install -r requirements.txt'
+                    sh 'deactivate'
+                }
             }
         }
         stage('Run API Tests') {
             steps {
-                sh 'pip install pytest'
-                sh 'pytest test_api.py'
+                script {
+                    sh '. env/bin/activate'
+                    sh 'pip install pytest'
+                    sh 'pytest test_api.py'
+                    sh 'deactivate'
+                }
             }
         }
         stage('Run UI Tests') {
             steps {
-                sh 'pip install pytest'
-                sh 'pytest  test_ui.py'
+                script {
+                    sh '. env/bin/activate'
+                    sh 'pip install pytest'
+                    sh 'pytest test_ui.py'
+                    sh 'deactivate'
+                }
             }
         }
         stage('Run DB Tests') {
             steps {
-                sh 'pip install pytest'
-                sh 'pytest  test_db.py'
+                script {
+                    sh '. env/bin/activate'
+                    sh 'pip install pytest'
+                    sh 'pytest test_db.py'
+                    sh 'deactivate'
+                }
             }
-        }
     }
 }
