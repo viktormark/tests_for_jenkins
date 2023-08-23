@@ -10,17 +10,20 @@ pipeline {
         }
         stage('Run API Tests') {
             steps {
-                bat 'pytest test_api.py'
+                sh 'pip install pytest'
+                sh 'pytest test_api.py'
             }
         }
         stage('Run UI Tests') {
             steps {
-                bat 'pytest  test_ui.py'
+                sh 'pip install pytest'
+                sh 'pytest  test_ui.py'
             }
         }
         stage('Run DB Tests') {
             steps {
-                bat 'pytest  test_db.py'
+                sh 'pip install pytest'
+                sh 'pytest  test_db.py'
             }
         }
     }
