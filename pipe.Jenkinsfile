@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Run UI Tests') {
             steps {
-                sh 'pytest --verbose test_ui.py'
+                sh 'pytest -v test_ui.py'
             }
         }
         stage('Run DB Tests') {
