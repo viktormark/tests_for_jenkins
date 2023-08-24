@@ -5,14 +5,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+
 @pytest.fixture
 def driver():
-    #driver = webdriver.Chrome()
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    options = Options()
+    options.binary_location = '/usr/bin/google-chrome'
+    options.add_argument("--headless")
+
+    driver = webdriver.Chrome('/path/to/chromedriver', options=options)
+
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
-
 
 def test_add_remove_elements(driver):
     driver.get("http://the-internet.herokuapp.com/")
