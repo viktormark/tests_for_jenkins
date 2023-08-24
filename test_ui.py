@@ -12,7 +12,7 @@ def driver():
     options.binary_location = '/usr/bin/google-chrome'
     options.add_argument("--headless")
 
-    driver = webdriver.Chrome('/path/to/chromedriver', options=options)
+    driver = webdriver.Chrome('/usr/local/bin/chromedriver', options=options)
 
     driver.implicitly_wait(10)
     yield driver
