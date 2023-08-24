@@ -7,8 +7,8 @@ from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
-    #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    #driver = webdriver.Chrome()
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
