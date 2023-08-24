@@ -1,6 +1,15 @@
 pipeline {
     agent any
     stages {
+        stage('Install Chrome') {
+            steps {
+                script {
+                    sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+                    sh 'dpkg -i google-chrome-stable_current_amd64.deb'
+                    sh 'apt-get install -f'
+                }
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 sh 'python3 -m venv env'
@@ -25,3 +34,4 @@ pipeline {
         }
     }
 }
+
