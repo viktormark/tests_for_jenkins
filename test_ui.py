@@ -1,5 +1,5 @@
 import pytest
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
@@ -11,7 +11,8 @@ def driver():
     options.binary_location = '/usr/bin/google-chrome'
     options.add_argument("--headless")
 
-    driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', options=options)
+    service = ChromeService(executable_path='/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(service=service, options=options)
 
     driver.implicitly_wait(10)
     yield driver
