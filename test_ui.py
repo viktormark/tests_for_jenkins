@@ -11,6 +11,7 @@ def driver():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = '/usr/local/bin/chrome'
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
     # options = Options()
     # options.binary_location = '/usr/bin/google-chrome'
     #options.add_argument("--headless")
