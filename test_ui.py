@@ -8,7 +8,12 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(options=chrome_options)
+
+
     # options = Options()
     # options.binary_location = '/usr/bin/google-chrome'
     # options.add_argument("--headless")
