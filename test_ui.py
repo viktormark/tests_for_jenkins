@@ -5,14 +5,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-
 @pytest.fixture
 def driver():
     options = Options()
     options.binary_location = '/usr/bin/google-chrome'
     options.add_argument("--headless")
 
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver', options=options)
+    driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', options=options)
 
     driver.implicitly_wait(10)
     yield driver
@@ -31,4 +30,3 @@ def test_add_remove_elements(driver):
     buttons[0].click()
     buttons = driver.find_elements(By.XPATH, "//button[text()='Delete']")
     assert len(buttons) == 1
-
