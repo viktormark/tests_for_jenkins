@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Run UI Tests') {
             steps {
-                sh 'xvfb-run pytest test_ui.py'
+                sh 'pytest --verbose test_ui.py'
             }
         }
         stage('Run DB Tests') {
