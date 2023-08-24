@@ -25,13 +25,15 @@ from selenium.webdriver.chrome.service import Service
 
 @pytest.fixture
 def driver():
-    chrome_options = Options()
-    chrome_options.binary_location = '/usr/local/bin/chrome'
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--verbose')
-    driver = webdriver.Chrome(options=chrome_options)
+    options = Options()
+    options.binary_location = '/usr/local/bin/chrome'
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--verbose')
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
