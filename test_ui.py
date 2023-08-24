@@ -6,21 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
-# @pytest.fixture
-# def driver():
-#     chrome_options = webdriver.ChromeOptions()
-#     chrome_options.binary_location = '/usr/local/bin/chrome'
-#     chrome_options.add_argument("--headless")
-#     chrome_options.add_argument("--disable-dev-shm-usage")
-#     chrome_options.add_argument("--no-sandbox")
-#
-#     service = ChromeService(executable_path='/usr/local/bin/chromedriver')
-#     driver = webdriver.Chrome(service=service, options=chrome_options)
-#
-#     driver.implicitly_wait(10)
-#     yield driver
-#     driver.quit()
-
+# docker exec -u 0 -it id /bin/bash
+# chmod -x /usr/local/bin/chrome
+# chmod -x /usr/local/bin/chromedriver
 
 
 @pytest.fixture
